@@ -1,0 +1,8 @@
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\ClassLibrary1\bin\Release\ClassLibrary1.dll
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\ClassLibrary1\bin\Release\ClassLibrary1.pdb
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\ClassLibrary1\obj\Release\ClassLibrary1.dll
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\ClassLibrary1\obj\Release\ClassLibrary1.pdb
+C:\Users\5152_SIA\Downloads\Лаба 2#\ClassLibrary1\ClassLibrary1\bin\Release\ClassLibrary1.dll
+C:\Users\5152_SIA\Downloads\Лаба 2#\ClassLibrary1\ClassLibrary1\bin\Release\ClassLibrary1.pdb
+C:\Users\5152_SIA\Downloads\Лаба 2#\ClassLibrary1\ClassLibrary1\obj\Release\ClassLibrary1.dll
+C:\Users\5152_SIA\Downloads\Лаба 2#\ClassLibrary1\ClassLibrary1\obj\Release\ClassLibrary1.pdb

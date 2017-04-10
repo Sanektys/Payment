@@ -1,0 +1,24 @@
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.exe.config
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.exe
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.pdb
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\WindowsFormsApplication1\bin\Release\ClassLibrary1.dll
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\WindowsFormsApplication1\bin\Release\ClassLibrary1.pdb
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\WindowsFormsApplication1\obj\Release\PaymentView.csprojResolveAssemblyReference.cache
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\WindowsFormsApplication1\obj\Release\PaymentView.AddEmployeeForm.resources
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\WindowsFormsApplication1\obj\Release\PaymentView.EditListsForm.resources
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\WindowsFormsApplication1\obj\Release\PaymentView.Properties.Resources.resources
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\WindowsFormsApplication1\obj\Release\PaymentView.csproj.GenerateResource.Cache
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.exe
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.pdb
+C:\Users\5152_SIA\Downloads\Лаба 2#\ClassLibrary1\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.exe.config
+C:\Users\5152_SIA\Downloads\Лаба 2#\ClassLibrary1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.exe
+C:\Users\5152_SIA\Downloads\Лаба 2#\ClassLibrary1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.pdb
+C:\Users\5152_SIA\Downloads\Лаба 2#\ClassLibrary1\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.exe
+C:\Users\5152_SIA\Downloads\Лаба 2#\ClassLibrary1\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.pdb
+C:\Users\5152_SIA\Downloads\Лаба 2#\ClassLibrary1\WindowsFormsApplication1\bin\Release\ClassLibrary1.dll
+C:\Users\5152_SIA\Downloads\Лаба 2#\ClassLibrary1\WindowsFormsApplication1\bin\Release\ClassLibrary1.pdb
+C:\Users\5152_SIA\Downloads\Лаба 2#\ClassLibrary1\WindowsFormsApplication1\obj\Release\PaymentView.csprojResolveAssemblyReference.cache
+C:\Users\5152_SIA\Downloads\Лаба 2#\ClassLibrary1\WindowsFormsApplication1\obj\Release\PaymentView.AddEmployeeForm.resources
+C:\Users\5152_SIA\Downloads\Лаба 2#\ClassLibrary1\WindowsFormsApplication1\obj\Release\PaymentView.EditListsForm.resources
+C:\Users\5152_SIA\Downloads\Лаба 2#\ClassLibrary1\WindowsFormsApplication1\obj\Release\PaymentView.Properties.Resources.resources
+C:\Users\5152_SIA\Downloads\Лаба 2#\ClassLibrary1\WindowsFormsApplication1\obj\Release\PaymentView.csproj.GenerateResource.Cache

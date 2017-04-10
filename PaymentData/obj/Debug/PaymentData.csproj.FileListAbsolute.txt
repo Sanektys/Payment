@@ -1,0 +1,15 @@
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\ClassLibrary1\obj\Debug\PaymentData.csprojResolveAssemblyReference.cache
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+D:\Учеба\Visual Studio 2013\Projects\Payment\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+D:\Учеба\Visual Studio 2013\Projects\Payment\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+D:\Учеба\Visual Studio 2013\Projects\Payment\ClassLibrary1\obj\Debug\PaymentData.csprojResolveAssemblyReference.cache
+D:\Учеба\Visual Studio 2013\Projects\Payment\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+D:\Учеба\Visual Studio 2013\Projects\Payment\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+C:\Users\5152_SIA\Downloads\Payment\Payment\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\5152_SIA\Downloads\Payment\Payment\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\5152_SIA\Downloads\Payment\Payment\ClassLibrary1\obj\Debug\PaymentData.csprojResolveAssemblyReference.cache
+C:\Users\5152_SIA\Downloads\Payment\Payment\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\5152_SIA\Downloads\Payment\Payment\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
