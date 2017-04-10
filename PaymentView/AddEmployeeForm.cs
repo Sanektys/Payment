@@ -214,7 +214,7 @@ namespace PaymentView
         private void buttonRandom_Click(object sender, EventArgs e)
         {
             Random rand = new Random();
-            int name = rand.Next(15);
+            int name = rand.Next(20);
             switch (name)
             {
                 case 0: maskedName.Text = "Илья"; break;
@@ -231,12 +231,17 @@ namespace PaymentView
                 case 11: maskedName.Text = "Роман"; break;
                 case 12: maskedName.Text = "Артём"; break;
                 case 13: maskedName.Text = "Лариса"; break;
-                case 14: maskedName.Text = "Ира"; break;
+                case 14: maskedName.Text = "Вадим"; break;
+                case 15: maskedName.Text = "Ира"; break;
+                case 16: maskedName.Text = "Глеб"; break;
+                case 17: maskedName.Text = "Егор"; break;
+                case 18: maskedName.Text = "Константин"; break;
+                case 19: maskedName.Text = "Лара"; break;
             }
             errorProviderName.Clear();
             _maskedName = true;
 
-            int surname = rand.Next(15);
+            int surname = rand.Next(20);
             switch (surname)
             {
                 case 0: maskedSurname.Text = "Рабинович"; break;
@@ -254,6 +259,11 @@ namespace PaymentView
                 case 12: maskedSurname.Text = "Маричук"; break;
                 case 13: maskedSurname.Text = "Божко"; break;
                 case 14: maskedSurname.Text = "Холод"; break;
+                case 15: maskedSurname.Text = "Станкевич"; break;
+                case 16: maskedSurname.Text = "Шваровски"; break;
+                case 17: maskedSurname.Text = "Коваленко"; break;
+                case 18: maskedSurname.Text = "Тимошенко"; break;
+                case 19: maskedSurname.Text = "Маркес"; break;
             }
             errorProviderSurname.Clear();
             _maskedSurname = true;
