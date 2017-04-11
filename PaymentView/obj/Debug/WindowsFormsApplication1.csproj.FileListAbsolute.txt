@@ -1,1 +1,0 @@
-D:\Учеба\Visual Studio 2013\Projects\ClassLibrary1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
