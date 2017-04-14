@@ -21,7 +21,7 @@ namespace PaymentView
 
         public BasicEmployeeData Employee;
 
-        public AddEmployeeForm(int _id)
+        public AddEmployeeForm(int id)
         {
             InitializeComponent();
 
@@ -32,48 +32,48 @@ namespace PaymentView
             labelHour.Visible = true;
             maskedHour.Visible = true;
 
-            maskedName.Text = Listing.listEmployees.ElementAt(_id).Name;
+            maskedName.Text = Listing.listEmployees.ElementAt(id).Name;
             _maskedName = true;
-            maskedSurname.Text = Listing.listEmployees.ElementAt(_id).Surname;
+            maskedSurname.Text = Listing.listEmployees.ElementAt(id).Surname;
             _maskedSurname = true;
-            maskedExperience.Text = Convert.ToString(Listing.listEmployees.ElementAt(_id).WorkExperience);
+            maskedExperience.Text = Convert.ToString(Listing.listEmployees.ElementAt(id).WorkExperience);
             _maskedWorkExperience = true;
-            switch (Listing.listEmployees.ElementAt(_id).GetPosition)
+            switch (Listing.listEmployees.ElementAt(id).Position)
             {
-                case "Рабочий": radioWorker.Checked = true; break;
-                case "Младший сотрудник": radioJunior.Checked = true; break;
-                case "Инженер": radioEngineer.Checked = true; break;
-                case "Офисный сотрудник": radioOffice.Checked = true; break;
+                case Position.Workman: radioWorker.Checked = true; break;
+                case Position.JuniorStaff: radioJunior.Checked = true; break;
+                case Position.Engineer: radioEngineer.Checked = true; break;
+                case Position.OfficeWorker: radioOffice.Checked = true; break;
             }
             _maskedPosition = true;
-            switch (Listing.listEmployees.ElementAt(_id).GetEducation)
+            switch (Listing.listEmployees.ElementAt(id).Education)
             {
-                case "Отсутствует": radioMissing.Checked = true; break;
-                case "Среднее": radioSecondary.Checked = true; break;
-                case "Высшее": radioHigher.Checked = true; break;
+                case Education.Missing: radioMissing.Checked = true; break;
+                case Education.Secondary: radioSecondary.Checked = true; break;
+                case Education.Higher: radioHigher.Checked = true; break;
             }
             _maskedEducation = true;
             HourlyPay hour = new HourlyPay();
             Rate rate = new Rate();
             Salary salary = new Salary();
-            if (Listing.listEmployees.ElementAt(_id).GetType() == hour.GetType())
+            if (Listing.listEmployees.ElementAt(id).GetType() == hour.GetType())
             {
                 radioHourlyPay.Checked = true;
-                hour = (HourlyPay)Listing.listEmployees.ElementAt(_id);
+                hour = (HourlyPay)Listing.listEmployees.ElementAt(id);
                 maskedHour.Text = Convert.ToString(hour.HoursWorked);
                 _maskedHour = true;
             }
-            if (Listing.listEmployees.ElementAt(_id).GetType() == rate.GetType())
+            if (Listing.listEmployees.ElementAt(id).GetType() == rate.GetType())
             {
                 radioRate.Checked = true;
-                rate = (Rate)Listing.listEmployees.ElementAt(_id);
+                rate = (Rate)Listing.listEmployees.ElementAt(id);
                 maskedRate.Text = Convert.ToString(rate.WorkedShift);
                 _maskedRate = true;
             }
-            if (Listing.listEmployees.ElementAt(_id).GetType() == salary.GetType())
+            if (Listing.listEmployees.ElementAt(id).GetType() == salary.GetType())
             {
                 radioSalary.Checked = true;
-                salary = (Salary)Listing.listEmployees.ElementAt(_id);
+                salary = (Salary)Listing.listEmployees.ElementAt(id);
                 maskedSalary.Text = Convert.ToString(salary.SpentDays);
                 _maskedSalary = true;
             }

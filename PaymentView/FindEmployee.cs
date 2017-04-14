@@ -167,6 +167,11 @@ namespace PaymentView
             if (radioButtonExperience.Checked)
             {
                 Listing.findEmployees.AddRange(Listing.listEmployees.Where(i => i.WorkExperience >= Convert.ToInt32(maskedExperience.Text)));
+                if (Listing.findEmployees.Count == 0)
+                {
+                    MessageBox.Show("Сотрудники с такими данными отсутствуют", "Ошибка поиска");
+                    return;
+                }
             }
             if (radioButtonPosition.Checked)
             {
@@ -175,7 +180,12 @@ namespace PaymentView
                     MessageBox.Show("Поле должности пустует", "Ошибка заполнения");
                     return;
                 }
-                Listing.findEmployees.AddRange(Listing.listEmployees.Where(i => i.GetPosition == Convert.ToString(comboBoxPosition.SelectedItem)));
+                Listing.findEmployees.AddRange(Listing.listEmployees.Where(i => EditListsForm.GetPosition(i.Position) == Convert.ToString(comboBoxPosition.SelectedItem)));
+                if (Listing.findEmployees.Count == 0)
+                {
+                    MessageBox.Show("Сотрудники с такими данными отсутствуют", "Ошибка поиска");
+                    return;
+                }
             }
             if (radioButtonEducation.Checked)
             {
@@ -184,7 +194,12 @@ namespace PaymentView
                     MessageBox.Show("Поле образования пустует", "Ошибка заполнения");
                     return;
                 }
-                Listing.findEmployees.AddRange(Listing.listEmployees.Where(i => i.GetEducation == Convert.ToString(comboBoxEducation.SelectedItem)));
+                Listing.findEmployees.AddRange(Listing.listEmployees.Where(i => EditListsForm.GetEducation(i.Education) == Convert.ToString(comboBoxEducation.SelectedItem)));
+                if (Listing.findEmployees.Count == 0)
+                {
+                    MessageBox.Show("Сотрудники с такими данными отсутствуют", "Ошибка поиска");
+                    return;
+                }
             }
             Close();
         }

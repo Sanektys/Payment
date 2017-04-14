@@ -14,9 +14,34 @@ namespace PaymentView
     {
         private DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<BasicEmployeeData>));
 
+        private bool _find = false;
+
         public EditListsForm()
         {
             InitializeComponent();
+        }
+
+        public static string GetPosition(Position position)
+        {
+            switch (position)
+            {
+                case PaymentData.Position.Workman: return "Рабочий";
+                case PaymentData.Position.JuniorStaff: return "Младший сотрудник";
+                case PaymentData.Position.Engineer: return "Инженер";
+                case PaymentData.Position.OfficeWorker: return "Офисный сотрудник";
+            }
+            return null;
+        }
+
+        public static string GetEducation(Education education)
+        {
+            switch (education)
+            {
+                case PaymentData.Education.Missing: return "Отсутствует";
+                case PaymentData.Education.Secondary: return "Среднее";
+                case PaymentData.Education.Higher: return "Высшее";
+            }
+            return null;
         }
 
         private void add_Click(object sender, EventArgs e)
@@ -28,7 +53,7 @@ namespace PaymentView
             {
                 return;
             }
-            dataGridEmployee.Rows.Add(employee.Name, employee.Surname, employee.WorkExperience, employee.GetPosition, employee.GetEducation);
+            dataGridEmployee.Rows.Add(employee.Name, employee.Surname, employee.WorkExperience, GetPosition(employee.Position), GetEducation(employee.Education));
             Listing.listEmployees.Add(employee);
             remove.Enabled = true;
             btnEdit.Enabled = true;
@@ -38,12 +63,14 @@ namespace PaymentView
         {
             int removeId = dataGridEmployee.SelectedCells[0].RowIndex;
             dataGridEmployee.Rows.RemoveAt(removeId);
-            Listing.listEmployees.RemoveAt(removeId);
+            Listing.listEmployees.RemoveAt(removeId);           
             if (Listing.listEmployees.Count == 0)
             {
                 remove.Enabled = false;
                 btnEdit.Enabled = false;
+                return;
             }
+            dataGridEmployee.Rows[dataGridEmployee.SelectedCells[0].RowIndex].Selected = true;
         }
 
         private void поискToolStripMenuItem_Click(object sender, EventArgs e)
@@ -56,19 +83,28 @@ namespace PaymentView
             FindEmployee findForm = new FindEmployee();
             btnEdit.Visible = false;
             btnRemove.Visible = true;
+            remove.Enabled = false;
+            add.Enabled = false;
             findForm.ShowDialog();
             if (Listing.findEmployees.Count == 0)
             {
+                if (_find == true)
+                {
+                    return;
+                }
                 btnRemove.Visible = false;
                 btnEdit.Visible = true;
+                remove.Enabled = true;
+                add.Enabled = true;
                 return;
             }
             dataGridEmployee.Rows.Clear();
             foreach (var data in Listing.findEmployees)
             {
-                dataGridEmployee.Rows.Add(data.Name, data.Surname, data.WorkExperience, data.GetPosition, data.GetEducation);
+                dataGridEmployee.Rows.Add(data.Name, data.Surname, data.WorkExperience, GetPosition(data.Position), GetEducation(data.Education));
             }
             Listing.findEmployees.Clear();
+            _find = true;
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -76,10 +112,13 @@ namespace PaymentView
             dataGridEmployee.Rows.Clear();
             foreach (var data in Listing.listEmployees)
             {
-                dataGridEmployee.Rows.Add(data.Name, data.Surname, data.WorkExperience, data.GetPosition, data.GetEducation);
+                dataGridEmployee.Rows.Add(data.Name, data.Surname, data.WorkExperience, GetPosition(data.Position), GetEducation(data.Education));
             }
             btnRemove.Visible = false;
             btnEdit.Visible = true;
+            remove.Enabled = true;
+            add.Enabled = true;
+            _find = false;
         }
 
         private void ntcnToolStripMenuItem_Click(object sender, EventArgs e)
@@ -94,7 +133,7 @@ namespace PaymentView
                 dataGridEmployee.Rows.Clear();
                 foreach (var data in Listing.listEmployees)
                 {
-                    dataGridEmployee.Rows.Add(data.Name, data.Surname, data.WorkExperience, data.GetPosition, data.GetEducation);
+                    dataGridEmployee.Rows.Add(data.Name, data.Surname, data.WorkExperience, GetPosition(data.Position), GetEducation(data.Education));
                 }
                 if (Listing.listEmployees.Count == 0)
                 {
@@ -143,7 +182,7 @@ namespace PaymentView
             dataGridEmployee.Rows.Clear();
             foreach (var data in Listing.listEmployees)
             {
-                dataGridEmployee.Rows.Add(data.Name, data.Surname, data.WorkExperience, data.GetPosition, data.GetEducation);
+                dataGridEmployee.Rows.Add(data.Name, data.Surname, data.WorkExperience, GetPosition(data.Position), GetEducation(data.Education));
             }
             dataGridEmployee.CurrentCell = dataGridEmployee.Rows[row].Cells[column];
             dataGridEmployee.Rows[row].Selected = true;

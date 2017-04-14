@@ -40,11 +40,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButtonName = new System.Windows.Forms.RadioButton();
             this.radioButtonSurname = new System.Windows.Forms.RadioButton();
-            this.radioButtonExperience = new System.Windows.Forms.RadioButton();
             this.groupBoxSurname = new System.Windows.Forms.GroupBox();
             this.comboBoxSurname = new System.Windows.Forms.ComboBox();
-            this.radioButtonPosition = new System.Windows.Forms.RadioButton();
+            this.radioButtonExperience = new System.Windows.Forms.RadioButton();
             this.radioButtonEducation = new System.Windows.Forms.RadioButton();
+            this.radioButtonPosition = new System.Windows.Forms.RadioButton();
             this.groupBoxPosition = new System.Windows.Forms.GroupBox();
             this.comboBoxPosition = new System.Windows.Forms.ComboBox();
             this.groupBoxEducation = new System.Windows.Forms.GroupBox();
@@ -169,18 +169,6 @@
             this.radioButtonSurname.UseVisualStyleBackColor = true;
             this.radioButtonSurname.CheckedChanged += new System.EventHandler(this.checkBoxSurname_CheckedChanged);
             // 
-            // radioButtonExperience
-            // 
-            this.radioButtonExperience.AutoSize = true;
-            this.radioButtonExperience.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonExperience.Location = new System.Drawing.Point(212, 1);
-            this.radioButtonExperience.Name = "radioButtonExperience";
-            this.radioButtonExperience.Size = new System.Drawing.Size(51, 17);
-            this.radioButtonExperience.TabIndex = 18;
-            this.radioButtonExperience.Text = "Стаж";
-            this.radioButtonExperience.UseVisualStyleBackColor = true;
-            this.radioButtonExperience.CheckedChanged += new System.EventHandler(this.checkBoxExperience_CheckedChanged);
-            // 
             // groupBoxSurname
             // 
             this.groupBoxSurname.Controls.Add(this.comboBoxSurname);
@@ -200,17 +188,17 @@
             this.comboBoxSurname.Size = new System.Drawing.Size(85, 21);
             this.comboBoxSurname.TabIndex = 17;
             // 
-            // radioButtonPosition
+            // radioButtonExperience
             // 
-            this.radioButtonPosition.AutoSize = true;
-            this.radioButtonPosition.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonPosition.Location = new System.Drawing.Point(9, 48);
-            this.radioButtonPosition.Name = "radioButtonPosition";
-            this.radioButtonPosition.Size = new System.Drawing.Size(83, 17);
-            this.radioButtonPosition.TabIndex = 20;
-            this.radioButtonPosition.Text = "Должность";
-            this.radioButtonPosition.UseVisualStyleBackColor = true;
-            this.radioButtonPosition.CheckedChanged += new System.EventHandler(this.checkBoxPosition_CheckedChanged);
+            this.radioButtonExperience.AutoSize = true;
+            this.radioButtonExperience.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButtonExperience.Location = new System.Drawing.Point(212, 1);
+            this.radioButtonExperience.Name = "radioButtonExperience";
+            this.radioButtonExperience.Size = new System.Drawing.Size(51, 17);
+            this.radioButtonExperience.TabIndex = 18;
+            this.radioButtonExperience.Text = "Стаж";
+            this.radioButtonExperience.UseVisualStyleBackColor = true;
+            this.radioButtonExperience.CheckedChanged += new System.EventHandler(this.checkBoxExperience_CheckedChanged);
             // 
             // radioButtonEducation
             // 
@@ -223,6 +211,18 @@
             this.radioButtonEducation.Text = "Образование";
             this.radioButtonEducation.UseVisualStyleBackColor = true;
             this.radioButtonEducation.CheckedChanged += new System.EventHandler(this.checkBoxEducation_CheckedChanged);
+            // 
+            // radioButtonPosition
+            // 
+            this.radioButtonPosition.AutoSize = true;
+            this.radioButtonPosition.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButtonPosition.Location = new System.Drawing.Point(9, 48);
+            this.radioButtonPosition.Name = "radioButtonPosition";
+            this.radioButtonPosition.Size = new System.Drawing.Size(83, 17);
+            this.radioButtonPosition.TabIndex = 20;
+            this.radioButtonPosition.Text = "Должность";
+            this.radioButtonPosition.UseVisualStyleBackColor = true;
+            this.radioButtonPosition.CheckedChanged += new System.EventHandler(this.checkBoxPosition_CheckedChanged);
             // 
             // groupBoxPosition
             // 
@@ -280,6 +280,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FindEmployee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Поиск сотрудника";
             this.groupBoxName.ResumeLayout(false);
             this.groupBoxExperience.ResumeLayout(false);

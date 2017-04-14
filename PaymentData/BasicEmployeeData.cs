@@ -72,51 +72,20 @@ namespace PaymentData
             } 
         }
         /// <summary>
-        /// Метод задания должности сотрудника
+        /// Метод задания и вывода должности сотрудника
         /// </summary>
         public Position Position 
         { 
-            set  { _position = value; }
+            set { _position = value; }
+            get { return _position; }
         }
         /// <summary>
-        /// Метод вывода должности сотрудника строкой
-        /// </summary>
-        public string GetPosition
-        {
-            get
-            {
-                switch (_position)
-                {
-                    case Position.Workman: return "Рабочий";
-                    case Position.JuniorStaff: return "Младший сотрудник";
-                    case Position.Engineer: return "Инженер";
-                    case Position.OfficeWorker: return "Офисный сотрудник";
-                }
-                return null;
-            }
-        }
-        /// <summary>
-        /// Метод задания информации об образовании сотрудника
+        /// Метод задания и вывода информации об образовании сотрудника
         /// </summary>
         public Education Education
         {
             set { _education = value; }
-        }
-        /// <summary>
-        /// Метод вывода информации об образовании сотрудника строкой
-        /// </summary>
-        public string GetEducation
-        {
-            get
-            {
-                switch (_education)
-                {
-                    case Education.Missing: return "Отсутствует";
-                    case Education.Secondary: return "Среднее";
-                    case Education.Higher: return "Высшее";
-                }
-                return null;
-            }
+            get { return _education; }
         }
         /// <summary>
         /// Метод расстановки коэффициентов оплаты труда по критериям должности и образования
