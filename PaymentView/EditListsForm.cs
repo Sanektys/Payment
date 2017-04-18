@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Runtime.Serialization.Json;
 using PaymentData;
@@ -19,6 +20,21 @@ namespace PaymentView
         public EditListsForm()
         {
             InitializeComponent();
+
+            this.MinimumSize = new Size(455, 300);
+            this.MaximumSize = new Size(455, 700);
+        }
+
+        private void DefaultEmployeeData()
+        {
+            textBoxName.Text = null;
+            textBoxSurname.Text = null;
+            textBoxExperience.Text = null;
+            textBoxPosition.Text = null;
+            textBoxEducation.Text = null;
+            labelMetod.Text = "Отработанных...";
+            textBoxMetod.Text = null;
+            textBoxPayday.Text = null;
         }
 
         public static string GetPosition(Position position)
@@ -64,6 +80,7 @@ namespace PaymentView
             int removeId = dataGridEmployee.SelectedCells[0].RowIndex;
             dataGridEmployee.Rows.RemoveAt(removeId);
             Listing.listEmployees.RemoveAt(removeId);           
+            DefaultEmployeeData();
             if (Listing.listEmployees.Count == 0)
             {
                 remove.Enabled = false;
@@ -71,6 +88,7 @@ namespace PaymentView
                 return;
             }
             dataGridEmployee.Rows[dataGridEmployee.SelectedCells[0].RowIndex].Selected = true;
+            ShowEmployeeData(dataGridEmployee.SelectedCells[0].RowIndex);
         }
 
         private void поискToolStripMenuItem_Click(object sender, EventArgs e)
@@ -98,6 +116,7 @@ namespace PaymentView
                 add.Enabled = true;
                 return;
             }
+            DefaultEmployeeData();
             dataGridEmployee.Rows.Clear();
             foreach (var data in Listing.findEmployees)
             {
@@ -114,6 +133,7 @@ namespace PaymentView
             {
                 dataGridEmployee.Rows.Add(data.Name, data.Surname, data.WorkExperience, GetPosition(data.Position), GetEducation(data.Education));
             }
+            DefaultEmployeeData();
             btnRemove.Visible = false;
             btnEdit.Visible = true;
             remove.Enabled = true;
@@ -186,11 +206,63 @@ namespace PaymentView
             }
             dataGridEmployee.CurrentCell = dataGridEmployee.Rows[row].Cells[column];
             dataGridEmployee.Rows[row].Selected = true;
+            ShowEmployeeData(row);
         }
 
+        private void ShowEmployeeData(int id)
+        {
+            textBoxName.Text = Listing.listEmployees[id].Name;
+            textBoxSurname.Text = Listing.listEmployees[id].Surname;
+            textBoxExperience.Text = Convert.ToString(Listing.listEmployees[id].WorkExperience) + " лет (года)";
+            textBoxPosition.Text = GetPosition(Listing.listEmployees[id].Position);
+            textBoxEducation.Text = GetEducation(Listing.listEmployees[id].Education);
+            if (Listing.listEmployees[id].GetType() == typeof(HourlyPay))
+            {
+                labelMetod.Text = "Отработанных часов:";
+                HourlyPay hourlyPay = (HourlyPay)Listing.listEmployees[id];
+                textBoxMetod.Text = Convert.ToString(hourlyPay.HoursWorked);
+                textBoxPayday.Text = Convert.ToString(hourlyPay.FinalSalary()) + " руб.";
+            }
+            if (Listing.listEmployees[id].GetType() == typeof(Rate))
+            {
+                labelMetod.Text = "Отработанных смен:";
+                Rate rate = (Rate)Listing.listEmployees[id];
+                textBoxMetod.Text = Convert.ToString(rate.WorkedShift);
+                textBoxPayday.Text = Convert.ToString(rate.FinalSalary()) + " руб.";
+            }
+            if (Listing.listEmployees[id].GetType() == typeof(Salary))
+            {
+                labelMetod.Text = "Отработанных дней:";
+                Salary salary = (Salary)Listing.listEmployees[id];
+                textBoxMetod.Text = Convert.ToString(salary.SpentDays);
+                textBoxPayday.Text = Convert.ToString(salary.FinalSalary()) + " руб.";
+            }
+        }
+        
         private void dataGridEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dataGridEmployee.Rows.Count == 0)
+            {
+                return;
+            }
             dataGridEmployee.Rows[dataGridEmployee.SelectedCells[0].RowIndex].Selected = true;
+            ShowEmployeeData(dataGridEmployee.SelectedCells[0].RowIndex);
+        }
+
+        private void toolStripData_CheckedChanged(object sender, EventArgs e)
+        {
+            if (toolStripData.Checked)
+            {
+                this.MinimumSize = new Size(672, 300);
+                this.MaximumSize = new Size(672, 700);
+                groupBoxData.Visible = true;
+            }
+            else
+            {
+                this.MinimumSize = new Size(455, 300);
+                this.MaximumSize = new Size(455, 700);
+                groupBoxData.Visible = false;
+            }
         }
     }
 }
