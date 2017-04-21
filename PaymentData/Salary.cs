@@ -27,7 +27,6 @@ namespace PaymentData
         /// <summary>
         /// Метод задания и вывода количества отработанных дней
         /// </summary>
-        [DataMember]
         public int SpentDays
         {
             get { return _spentDays; }
@@ -49,7 +48,7 @@ namespace PaymentData
             {
                 return 0;
             }
-            return ((_monthlySalary / _regulatoryDays) * _spentDays + (_workExperience * 40.8)) * PaymentRatios();
+            return Math.Round(((_monthlySalary / _regulatoryDays) * _spentDays + (_workExperience * 40.8)) * PaymentRatios(), 2);
         }
     }
 }

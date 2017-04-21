@@ -9,5 +9,5 @@
         JuniorStaff,
         Engineer,
         OfficeWorker
-    };
+    }
 }

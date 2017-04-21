@@ -22,7 +22,6 @@ namespace PaymentData
         /// <summary>
         /// Метод задания и вывода количества отработанных часов
         /// </summary>
-        [DataMember]
         public int HoursWorked
         {
             get { return _hoursWorked; }
@@ -44,7 +43,7 @@ namespace PaymentData
             {
                 return 0;
             }
-            return ((_hoursWorked * _hourlyRate) + (_workExperience * 40.8)) * PaymentRatios();
+            return Math.Round(((_hoursWorked * _hourlyRate) + (_workExperience * 40.8)) * PaymentRatios(), 2);
         }
     }
 }

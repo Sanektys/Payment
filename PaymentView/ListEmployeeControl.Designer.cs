@@ -29,16 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListEmployeeControl));
+            this.panelMain = new System.Windows.Forms.Panel();
             this.groupBoxPayment = new System.Windows.Forms.GroupBox();
-            this.textBoxPayment = new System.Windows.Forms.TextBox();
+            this.labelPayment = new System.Windows.Forms.Label();
             this.labelExperience2 = new System.Windows.Forms.Label();
             this.maskedWaste = new System.Windows.Forms.MaskedTextBox();
             this.labelWaste = new System.Windows.Forms.Label();
             this.maskedName = new System.Windows.Forms.MaskedTextBox();
             this.groupBoxEducation = new System.Windows.Forms.GroupBox();
+            this.labelEducation = new System.Windows.Forms.Label();
             this.comboBoxEducation = new System.Windows.Forms.ComboBox();
             this.groupBoxPosition = new System.Windows.Forms.GroupBox();
+            this.labelPosition = new System.Windows.Forms.Label();
             this.comboBoxPosition = new System.Windows.Forms.ComboBox();
             this.labelName = new System.Windows.Forms.Label();
             this.maskedExperience = new System.Windows.Forms.MaskedTextBox();
@@ -51,7 +54,8 @@
             this.errorProviderEducation = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderWaste = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTipWarning = new System.Windows.Forms.ToolTip(this.components);
-            this.panel1.SuspendLayout();
+            this.errorProviderPosition = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panelMain.SuspendLayout();
             this.groupBoxPayment.SuspendLayout();
             this.groupBoxEducation.SuspendLayout();
             this.groupBoxPosition.SuspendLayout();
@@ -60,32 +64,33 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderExperience)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderEducation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderWaste)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPosition)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelMain
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.groupBoxPayment);
-            this.panel1.Controls.Add(this.labelExperience2);
-            this.panel1.Controls.Add(this.maskedWaste);
-            this.panel1.Controls.Add(this.labelWaste);
-            this.panel1.Controls.Add(this.maskedName);
-            this.panel1.Controls.Add(this.groupBoxEducation);
-            this.panel1.Controls.Add(this.groupBoxPosition);
-            this.panel1.Controls.Add(this.labelName);
-            this.panel1.Controls.Add(this.maskedExperience);
-            this.panel1.Controls.Add(this.labelExperience1);
-            this.panel1.Controls.Add(this.maskedSurname);
-            this.panel1.Controls.Add(this.labelSurname);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(171, 223);
-            this.panel1.TabIndex = 12;
+            this.panelMain.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMain.Controls.Add(this.groupBoxPayment);
+            this.panelMain.Controls.Add(this.labelExperience2);
+            this.panelMain.Controls.Add(this.maskedWaste);
+            this.panelMain.Controls.Add(this.labelWaste);
+            this.panelMain.Controls.Add(this.maskedName);
+            this.panelMain.Controls.Add(this.groupBoxEducation);
+            this.panelMain.Controls.Add(this.groupBoxPosition);
+            this.panelMain.Controls.Add(this.labelName);
+            this.panelMain.Controls.Add(this.maskedExperience);
+            this.panelMain.Controls.Add(this.labelExperience1);
+            this.panelMain.Controls.Add(this.maskedSurname);
+            this.panelMain.Controls.Add(this.labelSurname);
+            this.panelMain.Location = new System.Drawing.Point(3, 3);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(171, 223);
+            this.panelMain.TabIndex = 12;
             // 
             // groupBoxPayment
             // 
-            this.groupBoxPayment.Controls.Add(this.textBoxPayment);
+            this.groupBoxPayment.Controls.Add(this.labelPayment);
             this.groupBoxPayment.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.groupBoxPayment.Location = new System.Drawing.Point(-3, 179);
             this.groupBoxPayment.Name = "groupBoxPayment";
@@ -95,49 +100,49 @@
             this.groupBoxPayment.Text = "Зарплата за месяц:";
             this.groupBoxPayment.Visible = false;
             // 
-            // textBoxPayment
+            // labelPayment
             // 
-            this.textBoxPayment.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.textBoxPayment.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPayment.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBoxPayment.Location = new System.Drawing.Point(41, 18);
-            this.textBoxPayment.Name = "textBoxPayment";
-            this.textBoxPayment.ReadOnly = true;
-            this.textBoxPayment.ShortcutsEnabled = false;
-            this.textBoxPayment.Size = new System.Drawing.Size(74, 13);
-            this.textBoxPayment.TabIndex = 24;
-            this.textBoxPayment.TabStop = false;
-            this.textBoxPayment.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.labelPayment.ForeColor = System.Drawing.Color.Black;
+            this.labelPayment.Location = new System.Drawing.Point(25, 20);
+            this.labelPayment.Name = "labelPayment";
+            this.labelPayment.Size = new System.Drawing.Size(110, 13);
+            this.labelPayment.TabIndex = 28;
+            this.labelPayment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelExperience2
             // 
-            this.labelExperience2.AutoSize = true;
+            this.labelExperience2.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.labelExperience2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.labelExperience2.Location = new System.Drawing.Point(99, 45);
+            this.labelExperience2.Location = new System.Drawing.Point(103, 45);
             this.labelExperience2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.labelExperience2.Name = "labelExperience2";
-            this.labelExperience2.Size = new System.Drawing.Size(56, 13);
+            this.labelExperience2.Size = new System.Drawing.Size(49, 13);
             this.labelExperience2.TabIndex = 22;
             this.labelExperience2.Text = "лет (года)";
+            this.labelExperience2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // maskedWaste
             // 
             this.maskedWaste.BackColor = System.Drawing.SystemColors.Control;
             this.maskedWaste.BeepOnError = true;
             this.maskedWaste.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.maskedWaste.Location = new System.Drawing.Point(92, 159);
+            this.maskedWaste.Location = new System.Drawing.Point(118, 159);
             this.maskedWaste.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.maskedWaste.Mask = "000";
             this.maskedWaste.Name = "maskedWaste";
             this.maskedWaste.Size = new System.Drawing.Size(18, 13);
             this.maskedWaste.TabIndex = 21;
+            this.maskedWaste.Click += new System.EventHandler(this.DefaultStartPosition);
+            this.maskedWaste.Enter += new System.EventHandler(this.RemovalCarriage);
+            this.maskedWaste.Leave += new System.EventHandler(this.maskedWaste_Leave);
+            this.maskedWaste.MouseEnter += new System.EventHandler(this.maskedWaste_MouseEnter);
             // 
             // labelWaste
             // 
             this.labelWaste.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.labelWaste.Location = new System.Drawing.Point(3, 159);
             this.labelWaste.Name = "labelWaste";
-            this.labelWaste.Size = new System.Drawing.Size(89, 13);
+            this.labelWaste.Size = new System.Drawing.Size(115, 13);
             this.labelWaste.TabIndex = 0;
             this.labelWaste.Text = "Отработанных...";
             // 
@@ -152,48 +157,77 @@
             this.maskedName.Name = "maskedName";
             this.maskedName.Size = new System.Drawing.Size(66, 13);
             this.maskedName.TabIndex = 0;
+            this.maskedName.Click += new System.EventHandler(this.DefaultStartPosition);
+            this.maskedName.Enter += new System.EventHandler(this.RemovalCarriage);
+            this.maskedName.Leave += new System.EventHandler(this.maskedName_Leave);
             // 
             // groupBoxEducation
             // 
+            this.groupBoxEducation.Controls.Add(this.labelEducation);
             this.groupBoxEducation.Controls.Add(this.comboBoxEducation);
             this.groupBoxEducation.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.groupBoxEducation.Location = new System.Drawing.Point(-3, 112);
+            this.groupBoxEducation.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.groupBoxEducation.Name = "groupBoxEducation";
             this.groupBoxEducation.Size = new System.Drawing.Size(156, 45);
             this.groupBoxEducation.TabIndex = 20;
             this.groupBoxEducation.TabStop = false;
             this.groupBoxEducation.Text = "Имеющееся образование:";
             // 
+            // labelEducation
+            // 
+            this.labelEducation.ForeColor = System.Drawing.Color.Black;
+            this.labelEducation.Location = new System.Drawing.Point(25, 18);
+            this.labelEducation.Name = "labelEducation";
+            this.labelEducation.Size = new System.Drawing.Size(110, 13);
+            this.labelEducation.TabIndex = 27;
+            this.labelEducation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelEducation.Visible = false;
+            // 
             // comboBoxEducation
             // 
             this.comboBoxEducation.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxEducation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEducation.ForeColor = System.Drawing.Color.Black;
             this.comboBoxEducation.FormattingEnabled = true;
             this.comboBoxEducation.Items.AddRange(new object[] {
-            "Высшее",
             "Отсутствует",
-            "Среднее"});
+            "Среднее",
+            "Высшее"});
             this.comboBoxEducation.Location = new System.Drawing.Point(9, 16);
             this.comboBoxEducation.Name = "comboBoxEducation";
             this.comboBoxEducation.Size = new System.Drawing.Size(140, 21);
-            this.comboBoxEducation.Sorted = true;
             this.comboBoxEducation.TabIndex = 1;
+            this.comboBoxEducation.Leave += new System.EventHandler(this.comboBoxEducation_Leave);
             // 
             // groupBoxPosition
             // 
+            this.groupBoxPosition.Controls.Add(this.labelPosition);
             this.groupBoxPosition.Controls.Add(this.comboBoxPosition);
             this.groupBoxPosition.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.groupBoxPosition.Location = new System.Drawing.Point(-3, 65);
+            this.groupBoxPosition.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.groupBoxPosition.Name = "groupBoxPosition";
             this.groupBoxPosition.Size = new System.Drawing.Size(156, 45);
             this.groupBoxPosition.TabIndex = 19;
             this.groupBoxPosition.TabStop = false;
             this.groupBoxPosition.Text = "Занимаемая должность:";
             // 
+            // labelPosition
+            // 
+            this.labelPosition.ForeColor = System.Drawing.Color.Black;
+            this.labelPosition.Location = new System.Drawing.Point(25, 18);
+            this.labelPosition.Name = "labelPosition";
+            this.labelPosition.Size = new System.Drawing.Size(110, 13);
+            this.labelPosition.TabIndex = 26;
+            this.labelPosition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelPosition.Visible = false;
+            // 
             // comboBoxPosition
             // 
             this.comboBoxPosition.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPosition.ForeColor = System.Drawing.Color.Black;
             this.comboBoxPosition.FormattingEnabled = true;
             this.comboBoxPosition.Items.AddRange(new object[] {
             "Инженер",
@@ -203,8 +237,8 @@
             this.comboBoxPosition.Location = new System.Drawing.Point(9, 16);
             this.comboBoxPosition.Name = "comboBoxPosition";
             this.comboBoxPosition.Size = new System.Drawing.Size(140, 21);
-            this.comboBoxPosition.Sorted = true;
             this.comboBoxPosition.TabIndex = 0;
+            this.comboBoxPosition.Leave += new System.EventHandler(this.comboBoxPosition_Leave);
             // 
             // labelName
             // 
@@ -228,6 +262,9 @@
             this.maskedExperience.Size = new System.Drawing.Size(12, 13);
             this.maskedExperience.TabIndex = 2;
             this.toolTipWarning.SetToolTip(this.maskedExperience, "Не больше 80-ти лет");
+            this.maskedExperience.Click += new System.EventHandler(this.DefaultStartPosition);
+            this.maskedExperience.Enter += new System.EventHandler(this.RemovalCarriage);
+            this.maskedExperience.Leave += new System.EventHandler(this.maskedExperience_Leave);
             // 
             // labelExperience1
             // 
@@ -246,11 +283,14 @@
             this.maskedSurname.BeepOnError = true;
             this.maskedSurname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.maskedSurname.Location = new System.Drawing.Point(62, 25);
-            this.maskedSurname.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.maskedSurname.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.maskedSurname.Mask = ">L<LL????????????";
             this.maskedSurname.Name = "maskedSurname";
-            this.maskedSurname.Size = new System.Drawing.Size(93, 13);
+            this.maskedSurname.Size = new System.Drawing.Size(90, 13);
             this.maskedSurname.TabIndex = 1;
+            this.maskedSurname.Click += new System.EventHandler(this.DefaultStartPosition);
+            this.maskedSurname.Enter += new System.EventHandler(this.RemovalCarriage);
+            this.maskedSurname.Leave += new System.EventHandler(this.maskedSurname_Leave);
             // 
             // labelSurname
             // 
@@ -265,22 +305,27 @@
             // errorProviderName
             // 
             this.errorProviderName.ContainerControl = this;
+            this.errorProviderName.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderName.Icon")));
             // 
             // errorProviderSurname
             // 
             this.errorProviderSurname.ContainerControl = this;
+            this.errorProviderSurname.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderSurname.Icon")));
             // 
             // errorProviderExperience
             // 
             this.errorProviderExperience.ContainerControl = this;
+            this.errorProviderExperience.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderExperience.Icon")));
             // 
             // errorProviderEducation
             // 
             this.errorProviderEducation.ContainerControl = this;
+            this.errorProviderEducation.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderEducation.Icon")));
             // 
             // errorProviderWaste
             // 
             this.errorProviderWaste.ContainerControl = this;
+            this.errorProviderWaste.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderWaste.Icon")));
             // 
             // toolTipWarning
             // 
@@ -291,19 +336,23 @@
             this.toolTipWarning.InitialDelay = 100;
             this.toolTipWarning.IsBalloon = true;
             this.toolTipWarning.ReshowDelay = 20;
-            this.toolTipWarning.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
+            // 
+            // errorProviderPosition
+            // 
+            this.errorProviderPosition.ContainerControl = this;
+            this.errorProviderPosition.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderPosition.Icon")));
             // 
             // ListEmployeeControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.CausesValidation = false;
+            this.Controls.Add(this.panelMain);
             this.Name = "ListEmployeeControl";
             this.Size = new System.Drawing.Size(177, 228);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelMain.ResumeLayout(false);
+            this.panelMain.PerformLayout();
             this.groupBoxPayment.ResumeLayout(false);
-            this.groupBoxPayment.PerformLayout();
             this.groupBoxEducation.ResumeLayout(false);
             this.groupBoxPosition.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderName)).EndInit();
@@ -311,13 +360,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderExperience)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderEducation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderWaste)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPosition)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.MaskedTextBox maskedName;
         private System.Windows.Forms.GroupBox groupBoxEducation;
         private System.Windows.Forms.GroupBox groupBoxPosition;
@@ -331,7 +381,6 @@
         private System.Windows.Forms.ComboBox comboBoxPosition;
         private System.Windows.Forms.ComboBox comboBoxEducation;
         private System.Windows.Forms.Label labelExperience2;
-        private System.Windows.Forms.TextBox textBoxPayment;
         private System.Windows.Forms.GroupBox groupBoxPayment;
         private System.Windows.Forms.ErrorProvider errorProviderName;
         private System.Windows.Forms.ErrorProvider errorProviderSurname;
@@ -339,6 +388,10 @@
         private System.Windows.Forms.ErrorProvider errorProviderEducation;
         private System.Windows.Forms.ErrorProvider errorProviderWaste;
         private System.Windows.Forms.ToolTip toolTipWarning;
+        private System.Windows.Forms.Label labelPosition;
+        private System.Windows.Forms.Label labelEducation;
+        private System.Windows.Forms.Label labelPayment;
+        private System.Windows.Forms.ErrorProvider errorProviderPosition;
 
     }
 }

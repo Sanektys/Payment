@@ -41,7 +41,7 @@ namespace UnitTests.PaymentData
             salary.Education = education;
             salary.Position = position;
             salary.SpentDays = spentDays;
-            return Math.Round(salary.FinalSalary(), 1);
+            return salary.FinalSalary();
         }
     }
 }

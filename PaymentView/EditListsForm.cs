@@ -15,26 +15,24 @@ namespace PaymentView
     {
         private DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<BasicEmployeeData>));
 
+        private ListEmployeeControl listEmployeeControlMain = new ListEmployeeControl();
+
         private bool _find = false;
 
         public EditListsForm()
         {
             InitializeComponent();
 
-            this.MinimumSize = new Size(455, 300);
-            this.MaximumSize = new Size(455, 700);
-        }
+            this.MinimumSize = new Size(417, 325);
+            this.MaximumSize = new Size(417, 650);
 
-        private void DefaultEmployeeData()
-        {
-            textBoxName.Text = null;
-            textBoxSurname.Text = null;
-            textBoxExperience.Text = null;
-            textBoxPosition.Text = null;
-            textBoxEducation.Text = null;
-            labelMetod.Text = "Отработанных...";
-            textBoxMetod.Text = null;
-            textBoxPayday.Text = null;
+            dataGridEmployee.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridEmployee.ColumnHeadersHeight = 24;
+            
+            listEmployeeControlMain.Parent = groupBoxData;
+            listEmployeeControlMain.Location = new Point(6, 16);
+            listEmployeeControlMain.ReadOnly = true;
+            listEmployeeControlMain.DataValidity = true;
         }
 
         public static string GetPosition(Position position)
@@ -71,6 +69,7 @@ namespace PaymentView
             }
             dataGridEmployee.Rows.Add(employee.Name, employee.Surname, employee.WorkExperience, GetPosition(employee.Position), GetEducation(employee.Education));
             Listing.listEmployees.Add(employee);
+            listEmployeeControlMain.BasicEmployeeData = Listing.listEmployees[dataGridEmployee.SelectedCells[0].RowIndex];
             remove.Enabled = true;
             btnEdit.Enabled = true;
         }
@@ -79,20 +78,20 @@ namespace PaymentView
         {
             int removeId = dataGridEmployee.SelectedCells[0].RowIndex;
             dataGridEmployee.Rows.RemoveAt(removeId);
-            Listing.listEmployees.RemoveAt(removeId);           
-            DefaultEmployeeData();
+            Listing.listEmployees.RemoveAt(removeId);
+            listEmployeeControlMain.BasicEmployeeData = null;
             if (Listing.listEmployees.Count == 0)
             {
                 remove.Enabled = false;
                 btnEdit.Enabled = false;
                 return;
             }
-            dataGridEmployee.Rows[dataGridEmployee.SelectedCells[0].RowIndex].Selected = true;
-            ShowEmployeeData(dataGridEmployee.SelectedCells[0].RowIndex);
+            listEmployeeControlMain.BasicEmployeeData = Listing.listEmployees[dataGridEmployee.SelectedCells[0].RowIndex];
         }
 
         private void поискToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Listing.findEmployees.Clear();
             if (Listing.listEmployees.Count == 0)
             {
                 MessageBox.Show("Список сотрудников пуст", "Ошибка поиска");
@@ -116,24 +115,24 @@ namespace PaymentView
                 add.Enabled = true;
                 return;
             }
-            DefaultEmployeeData();
             dataGridEmployee.Rows.Clear();
             foreach (var data in Listing.findEmployees)
             {
                 dataGridEmployee.Rows.Add(data.Name, data.Surname, data.WorkExperience, GetPosition(data.Position), GetEducation(data.Education));
             }
-            Listing.findEmployees.Clear();
+            listEmployeeControlMain.BasicEmployeeData = Listing.findEmployees[dataGridEmployee.SelectedCells[0].RowIndex];
             _find = true;
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
+            Listing.findEmployees.Clear();
             dataGridEmployee.Rows.Clear();
             foreach (var data in Listing.listEmployees)
             {
                 dataGridEmployee.Rows.Add(data.Name, data.Surname, data.WorkExperience, GetPosition(data.Position), GetEducation(data.Education));
             }
-            DefaultEmployeeData();
+            listEmployeeControlMain.BasicEmployeeData = Listing.listEmployees[dataGridEmployee.SelectedCells[0].RowIndex];
             btnRemove.Visible = false;
             btnEdit.Visible = true;
             remove.Enabled = true;
@@ -164,6 +163,7 @@ namespace PaymentView
                 {
                     remove.Enabled = true;
                     btnEdit.Enabled = true;
+                    listEmployeeControlMain.BasicEmployeeData = Listing.listEmployees[dataGridEmployee.SelectedCells[0].RowIndex];
                 }
             }
         }
@@ -205,38 +205,7 @@ namespace PaymentView
                 dataGridEmployee.Rows.Add(data.Name, data.Surname, data.WorkExperience, GetPosition(data.Position), GetEducation(data.Education));
             }
             dataGridEmployee.CurrentCell = dataGridEmployee.Rows[row].Cells[column];
-            dataGridEmployee.Rows[row].Selected = true;
-            ShowEmployeeData(row);
-        }
-
-        private void ShowEmployeeData(int id)
-        {
-            textBoxName.Text = Listing.listEmployees[id].Name;
-            textBoxSurname.Text = Listing.listEmployees[id].Surname;
-            textBoxExperience.Text = Convert.ToString(Listing.listEmployees[id].WorkExperience) + " лет (года)";
-            textBoxPosition.Text = GetPosition(Listing.listEmployees[id].Position);
-            textBoxEducation.Text = GetEducation(Listing.listEmployees[id].Education);
-            if (Listing.listEmployees[id].GetType() == typeof(HourlyPay))
-            {
-                labelMetod.Text = "Отработанных часов:";
-                HourlyPay hourlyPay = (HourlyPay)Listing.listEmployees[id];
-                textBoxMetod.Text = Convert.ToString(hourlyPay.HoursWorked);
-                textBoxPayday.Text = Convert.ToString(hourlyPay.FinalSalary()) + " руб.";
-            }
-            if (Listing.listEmployees[id].GetType() == typeof(Rate))
-            {
-                labelMetod.Text = "Отработанных смен:";
-                Rate rate = (Rate)Listing.listEmployees[id];
-                textBoxMetod.Text = Convert.ToString(rate.WorkedShift);
-                textBoxPayday.Text = Convert.ToString(rate.FinalSalary()) + " руб.";
-            }
-            if (Listing.listEmployees[id].GetType() == typeof(Salary))
-            {
-                labelMetod.Text = "Отработанных дней:";
-                Salary salary = (Salary)Listing.listEmployees[id];
-                textBoxMetod.Text = Convert.ToString(salary.SpentDays);
-                textBoxPayday.Text = Convert.ToString(salary.FinalSalary()) + " руб.";
-            }
+            listEmployeeControlMain.BasicEmployeeData = Listing.listEmployees[row];
         }
         
         private void dataGridEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -245,22 +214,28 @@ namespace PaymentView
             {
                 return;
             }
-            dataGridEmployee.Rows[dataGridEmployee.SelectedCells[0].RowIndex].Selected = true;
-            ShowEmployeeData(dataGridEmployee.SelectedCells[0].RowIndex);
+            if (_find)
+            {
+                listEmployeeControlMain.BasicEmployeeData = Listing.findEmployees[dataGridEmployee.SelectedCells[0].RowIndex];
+            }
+            else
+            {
+                listEmployeeControlMain.BasicEmployeeData = Listing.listEmployees[dataGridEmployee.SelectedCells[0].RowIndex];
+            }
         }
 
         private void toolStripData_CheckedChanged(object sender, EventArgs e)
         {
             if (toolStripData.Checked)
             {
-                this.MinimumSize = new Size(672, 300);
-                this.MaximumSize = new Size(672, 700);
+                this.MinimumSize = new Size(609, 325);
+                this.MaximumSize = new Size(609, 650);
                 groupBoxData.Visible = true;
             }
             else
             {
-                this.MinimumSize = new Size(455, 300);
-                this.MaximumSize = new Size(455, 700);
+                this.MinimumSize = new Size(417, 325);
+                this.MaximumSize = new Size(417, 650);
                 groupBoxData.Visible = false;
             }
         }

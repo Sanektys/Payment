@@ -40,7 +40,6 @@ namespace PaymentData
         /// <summary>
         /// Метод задания и вывода имени сотрудника
         /// </summary>
-        [DataMember]
         public string Name 
         {
             get { return _name; }
@@ -49,7 +48,6 @@ namespace PaymentData
         /// <summary>
         /// Метод задания и вывода фамилии сотрудника
         /// </summary>
-        [DataMember]
         public string Surname 
         { 
             get { return _surname; }
@@ -58,7 +56,6 @@ namespace PaymentData
         /// <summary>
         /// Метод задания и вывода стажа работы сотрудника
         /// </summary>
-        [DataMember]
         public int WorkExperience
         {
             get { return _workExperience; }

@@ -22,7 +22,6 @@ namespace PaymentData
         /// <summary>
         /// Метод задания и вывода количества отработанных смен
         /// </summary>
-        [DataMember]
         public int WorkedShift
         {
             get { return _workedShift; }
@@ -44,7 +43,7 @@ namespace PaymentData
             {
                 return 0;
             }
-            return ((_workedShift * _shiftRate) + (_workExperience * 40.8)) * PaymentRatios();
+            return Math.Round(((_workedShift * _shiftRate) + (_workExperience * 40.8)) * PaymentRatios(), 2);
         }
     }
 }
