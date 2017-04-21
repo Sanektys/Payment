@@ -8,5 +8,5 @@
         Missing,
         Secondary,
         Higher
-    };
+    }
 }

@@ -33,7 +33,7 @@ namespace UnitTests.PaymentData
         /// <param name="workedShift">Отработанные смены</param>
         /// <returns>Итоговая плата за месяц</returns>
         [Test]
-        [TestCase(14, Education.Higher, Position.Engineer, 12, ExpectedResult = 51359.616, TestName = "Тестирование итогового расчета зарплаты по ставке")]
+        [TestCase(14, Education.Higher, Position.Engineer, 12, ExpectedResult = 51359.62, TestName = "Тестирование итогового расчета зарплаты по ставке")]
         public double FinalSalaryTest(int workExperience, Education education, Position position, int workedShift)
         {
             var rate = new Rate();

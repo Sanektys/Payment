@@ -280,6 +280,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FindEmployee";
+            this.Opacity = 0.99D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Поиск сотрудника";
             this.groupBoxName.ResumeLayout(false);
