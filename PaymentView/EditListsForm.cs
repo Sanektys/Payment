@@ -19,10 +19,15 @@ namespace PaymentView
 
         private bool _find = false;
 
-        public EditListsForm()
+        public EditListsForm(string[] args)
         {
             InitializeComponent();
 
+            foreach (string fileName in args)
+            {
+                DeSerialization(fileName);
+            }
+            
             this.MinimumSize = new Size(417, 325);
             this.MaximumSize = new Size(417, 650);
 
@@ -33,6 +38,10 @@ namespace PaymentView
             listEmployeeControlMain.Location = new Point(6, 16);
             listEmployeeControlMain.ReadOnly = true;
             listEmployeeControlMain.DataValidity = true;
+            if (Listing.listEmployees.Count != 0)
+            {
+                listEmployeeControlMain.BasicEmployeeData = Listing.listEmployees[dataGridEmployee.SelectedCells[0].RowIndex];
+            }
         }
 
         public static string GetPosition(Position position)
@@ -140,31 +149,39 @@ namespace PaymentView
             _find = false;
         }
 
+        private void DeSerialization(string fileName)
+        {
+            using (FileStream source = new FileStream(fileName, FileMode.Open))
+            {
+                Listing.listEmployees = (List<BasicEmployeeData>)serializer.ReadObject(source);
+            }
+            dataGridEmployee.Rows.Clear();
+            foreach (var data in Listing.listEmployees)
+            {
+                dataGridEmployee.Rows.Add(data.Name, data.Surname, data.WorkExperience, GetPosition(data.Position), GetEducation(data.Education));
+            }
+            if (Listing.listEmployees.Count == 0)
+            {
+                remove.Enabled = false;
+                btnEdit.Enabled = false;
+            }
+            else
+            {
+                remove.Enabled = true;
+                btnEdit.Enabled = true;                
+            }
+        }
+        
         private void ntcnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFile.Filter = "Списки сотрудников (.pmt)|*.pmt";
             if (openFile.ShowDialog() == DialogResult.OK)
             {
-                using (FileStream source = new FileStream(openFile.FileName, FileMode.OpenOrCreate))
-                {
-                    Listing.listEmployees = (List<BasicEmployeeData>)serializer.ReadObject(source);
-                }  
-                dataGridEmployee.Rows.Clear();
-                foreach (var data in Listing.listEmployees)
-                {
-                    dataGridEmployee.Rows.Add(data.Name, data.Surname, data.WorkExperience, GetPosition(data.Position), GetEducation(data.Education));
-                }
-                if (Listing.listEmployees.Count == 0)
-                {
-                    remove.Enabled = false;
-                    btnEdit.Enabled = false;
-                }
-                else
-                {
-                    remove.Enabled = true;
-                    btnEdit.Enabled = true;
-                    listEmployeeControlMain.BasicEmployeeData = Listing.listEmployees[dataGridEmployee.SelectedCells[0].RowIndex];
-                }
+                DeSerialization(openFile.FileName);
+            }
+            if (Listing.listEmployees.Count != 0)
+            {
+                listEmployeeControlMain.BasicEmployeeData = Listing.listEmployees[dataGridEmployee.SelectedCells[0].RowIndex];
             }
         }
 
@@ -178,7 +195,7 @@ namespace PaymentView
             saveFile.Filter = "Списки сотрудников (.pmt)|*.pmt";
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
-                using (FileStream source = new FileStream(saveFile.FileName, FileMode.OpenOrCreate))
+                using (FileStream source = new FileStream(saveFile.FileName, FileMode.Create))
                 {
                     serializer.WriteObject(source, Listing.listEmployees);
                 }  

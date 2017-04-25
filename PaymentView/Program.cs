@@ -9,11 +9,11 @@ namespace PaymentView
         /// Главная точка входа для приложения.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EditListsForm());
+            Application.Run(new EditListsForm(args));
         }
     }
 }
